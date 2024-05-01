@@ -1,0 +1,218 @@
+1)Print odd numbers in an array
+anonymous  :  function(array){
+                  for(var i = 0 ; i< array.length ; i++){
+                        if(array[i]%2!=0){
+                           console.log(array[i])
+                        } 
+                   }
+                }
+IIFE :       (function(array){
+             for(var i = 0 ; i< array.length ; i++){
+                        if(array[i]%2!=0){
+                           console.log(array[i])
+                        } 
+                   }
+             })([1,2,3,4])
+             
+Arrow Function    oddNumbers = (array) => {
+                   for(var i = 0 ; i< array.length ; i++){
+                        if(array[i]%2!=0){
+                           console.log(array[i])
+                        } 
+                   }
+                        }
+                        
+   2)Convert all the strings to title caps in a string array
+   
+ anonymous :   function (str) {
+                    str = str.toLowerCase().split(' ');
+                    for (var i = 0; i < str.length; i++) {
+                      str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1); 
+                    } 
+                    return str.join(' ');
+                  }
+IIFE : (function (str) {
+                    str = str.toLowerCase().split(' ');
+                    for (var i = 0; i < str.length; i++) {
+                      str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1); 
+                    } 
+                    return str.join(' ');
+                  })("MUDRA IS MY NAME");
+ Arrow Function : titleCase = (str) => {
+                    str = str.toLowerCase().split(' ');
+                    for (var i = 0; i < str.length; i++) {
+                      str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1); 
+                    } 
+                    return str.join(' ');
+                  }            
+3)Sum of all numbers in an array 
+anonymous  :  function(array){
+                  var sum = 0;
+                  for(var i = 0 ; i< array.length ; i++){
+                     sum = sum + array[i];
+                   }
+                   return sum;
+                }
+IIFE :       (function(array){
+             var sum = 0;
+                  for(var i = 0 ; i< array.length ; i++){
+                     sum = sum + array[i];
+                   }
+                   return sum;
+             })([1,2,3,4])
+Arrow:       sum = (array)=>{
+             var sum = 0;
+                  for(var i = 0 ; i< array.length ; i++){
+                     sum = sum + array[i];
+                   }
+                   return sum;
+                   }
+4)Return all the prime numbers in an array
+    Anonymous Function:
+                 function(numArray){
+                      numArray = numArray.filter((number) => {
+                        for (var i = 2; i <= Math.sqrt(number); i++) {
+                          if (number % i === 0) return false;
+                        }
+                        return true;
+                      });
+                      console.log(numArray);
+                  }
+   IIFE 
+                   (  
+                   function(numArray){
+                      numArray = numArray.filter((number) => {
+                        for (var i = 2; i <= Math.sqrt(number); i++) {
+                          if (number % i === 0) return false;
+                        }
+                        return true;
+                      });
+                      console.log(numArray);
+                  })([1,2,3,4])
+    Arrow Function :
+    
+       primeNumber = (numArray) => {
+                      numArray = numArray.filter((number) => {
+                        for (var i = 2; i <= Math.sqrt(number); i++) {
+                          if (number % i === 0) return false;
+                        }
+                        return true;
+                      });
+                      console.log(numArray);
+                  }
+                  
+5)  Return all the palindromes in an array
+
+let findPalindromes=function(arr) {
+    const palindromes = [];
+    for (const item of arr) {
+        const str = item.toString();
+        if (str === str.split('').reverse().join('')) {
+            palindromes.push(item);
+        }
+    }
+    return palindromes;
+}
+
+
+    IIFE : 
+(function(arr) {
+    const palindromes = [];
+    for (const item of arr) {
+        const str = item.toString();
+        if (str === str.split('').reverse().join('')) {
+            palindromes.push(item);
+        }
+    }
+    return palindromes;
+}
+)(['kayak', 12345, 'noon', 11011, 'javascript'])
+
+Arrow : 
+Palindrome = (arr) =>
+    {
+    const palindromes = [];
+    for (const item of arr) {
+        const str = item.toString();
+        if (str === str.split('').reverse().join('')) {
+            palindromes.push(item);
+        }
+    }
+    return palindromes;
+    }
+6).Return median of two sorted arrays of same size
+  const findMedianSortedArrays=function(arr1, arr2) {
+    // Both arrays are of the same size
+    let n = arr1.length;
+    
+    // Initialize a new array to hold the merged values
+    let merged = [];
+    let i = 0, j = 0, k = 0;
+
+    // Merge the two arrays
+    while (i < n && j < n) {
+        if (arr1[i] < arr2[j]) {
+            merged[k++] = arr1[i++];
+        } else {
+            merged[k++] = arr2[j++];
+        }
+    }
+
+    // If there are remaining elements in arr1
+    while (i < n) {
+        merged[k++] = arr1[i++];
+    }
+
+    // If there are remaining elements in arr2
+    while (j < n) {
+        merged[k++] = arr2[j++];
+    }
+
+    // Calculate median
+    let mid = n; // this works because the merged array has length 2*n
+    return (merged[mid-1] + merged[mid]) / 2;
+}
+IIFE:
+const arrValue1 = [1, 12, 15, 26, 38];
+const arrValue2 = [2, 13, 17, 30, 45];
+
+(function(arr,arr2){
+    findMedianSortedArrays(arr1,arr2)
+ })(arrValue1,arrValue2)
+
+7).Remove duplicates from an Array
+Anonymous Function : function(array){
+                        let dup = [...new Set(array)];
+                        console.log(dup);
+                      }
+IIFE :                (function(array){
+                        let dup = [...new Set(array)];
+                        console.log(dup);
+                       })([1,1,2,3,4])
+                       
+
+8.Rotate an array by K times
+function rotateByOne(arr) {
+    let last = arr[arr.length - 1];
+    for (let i = arr.length - 1; i > 0; i--) {
+        arr[i] = arr[i - 1];
+    }
+    arr[0] = last;
+}
+
+Anonymous function : function(arr, k) {
+    for (let i = 0; i < k; i++) {
+        rotateByOne(arr);
+    }
+}
+
+                          
+   IIFE :   (function(array , k)
+   {
+    for (let i = 0; i < k; i++)
+     {
+        rotateByOne(arr);
+     }
+     }
+     )([1,2,3,4] , 2)
+                          
